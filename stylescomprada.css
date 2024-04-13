@@ -1,0 +1,9 @@
+/* Estilo para a imagem com efeito dourado */
+.catalogo img {
+    width: 100%; /* Garante que a imagem ocupe toda a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 5px; /* Borda arredondada para a imagem */
+
+    /* Aplica filtro dourado */
+    filter: sepia(100%) saturate(1000%) hue-rotate(30deg);
+}
