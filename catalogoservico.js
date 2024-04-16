@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para exibir o catálogo na página
     const exibirCatalogo = async () => {
-        const dados = await lerCSV('dadoscomprada.csv');
+        const dados = await lerCSV('dadosservico.csv');
 
         dados.forEach(item => {
             const { nome, preco, conteudo, link } = item;
@@ -33,29 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.classList.add('card');
 
-			const imagem = document.createElement('img');
-			const caminhoPNG = `imagenscomprada/${nome}.png`;
-			const caminhoJPG = `imagenscomprada/${nome}.jpg`;
-
-			// Verificando se o arquivo PNG existe
-			fetch(caminhoPNG)
-			  .then(response => {
-				if (response.ok) {
-				  imagem.src = caminhoPNG;
-				} else {
-				  // Se o PNG não existir, carregue o JPG
-				  imagem.src = caminhoJPG;
-				}
-				imagem.alt = nome;
-				card.appendChild(imagem);
-			  })
-			  .catch(error => {
-				// Se houver algum erro ao verificar o PNG, carregue o JPG
-				imagem.src = caminhoJPG;
-				imagem.alt = nome;
-				card.appendChild(imagem);
-			  });
-
+            // Imagem
+            const imagem = document.createElement('img');
+            imagem.src = `servico/${nome}.png`;
+            imagem.alt = nome;
+            card.appendChild(imagem);
 
             // Nome
             const nomeElemento = document.createElement('h2');
